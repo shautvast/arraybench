@@ -108,10 +108,10 @@ public class JmhBenchmark {
 
     @Benchmark
     public int seqMultArrayGetLRTD(State state) {
-        int t = 0xFFFFFFFF;
+        int t = 0;
         for (int c = 0; c < COLS; c++) {
             for (int r = 0; r < ROWS; r++) {
-                t = state.intArray.get(r, c);
+                t += state.intArray.get(r, c);
             }
         }
         return t;
@@ -122,7 +122,7 @@ public class JmhBenchmark {
         int t = 0;
         for (int r = 0; r < ROWS; r++) {
             for (int c = 0; c < COLS; c++) {
-                t = state.intArray.get(r, c);
+                t += state.intArray.get(r, c);
             }
         }
         return t;
