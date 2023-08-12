@@ -1,0 +1,1 @@
+JMH benchmarks voor array reading because I want to find out the impact of if L1/L2 caches and prefetching on a java app. 
