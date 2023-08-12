@@ -98,8 +98,8 @@ public class JmhBenchmark {
     @Benchmark
     public int seq2DArrayGetLRTD(State state) {
         int t = 0;
-        for (int r = 0; r < ROWS; r++) {
-            for (int c = 0; c < COLS; c++) {
+        for (int c = 0; c < COLS; c++) {
+            for (int r = 0; r < ROWS; r++) {
                 t += state.seqInt2DArray.get(r, c);
             }
         }
