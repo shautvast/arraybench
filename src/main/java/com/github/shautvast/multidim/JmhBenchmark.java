@@ -39,7 +39,7 @@ public class JmhBenchmark {
 
     }
 
-    //@Benchmark
+    @Benchmark
     public Int2dArray seq2DArraySetTDLR(State state) {
         Int2dArray d2Array = new Int2dArray(ROWS, COLS);
         for (int r = 0; r < ROWS; r++) {
@@ -50,7 +50,7 @@ public class JmhBenchmark {
         return d2Array;
     }
 
-    //@Benchmark
+    @Benchmark
     public int[][] classicArraySet(State state) {
         int[][] d2Array = new int[ROWS][COLS];
         for (int r = 0; r < ROWS; r++) {
@@ -84,7 +84,7 @@ public class JmhBenchmark {
         return t;
     }
 
-//    @Benchmark
+    @Benchmark
     public int seq2DArrayGetTDLR(State state) {
         int t = 0;
         for (int r = 0; r < ROWS; r++) {
@@ -95,7 +95,7 @@ public class JmhBenchmark {
         return t;
     }
 
-    //@Benchmark
+    @Benchmark
     public int seq2DArrayGetLRTD(State state) {
         int t = 0;
         for (int r = 0; r < ROWS; r++) {
@@ -106,7 +106,7 @@ public class JmhBenchmark {
         return t;
     }
 
-    //@Benchmark
+    @Benchmark
     public int seqMultArrayGetLRTD(State state) {
         int t = 0xFFFFFFFF;
         for (int c = 0; c < COLS; c++) {
@@ -117,7 +117,7 @@ public class JmhBenchmark {
         return t;
     }
 
-    //@Benchmark
+    @Benchmark
     public int seqMultArrayGetTDLR(State state) {
         int t = 0;
         for (int r = 0; r < ROWS; r++) {
