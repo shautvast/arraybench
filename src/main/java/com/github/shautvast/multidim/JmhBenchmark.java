@@ -51,7 +51,18 @@ public class JmhBenchmark {
     }
 
     @Benchmark
-    public int[][] classicArraySet(State state) {
+    public Int2dArray seq2DArraySetLRTD(State state) {
+        Int2dArray d2Array = new Int2dArray(ROWS, COLS);
+        for (int c = 0; c < COLS; c++) {
+            for (int r = 0; r < ROWS; r++) {
+                d2Array.set(r, c, r * c);
+            }
+        }
+        return d2Array;
+    }
+
+    @Benchmark
+    public int[][] classicArraySetTDLR(State state) {
         int[][] d2Array = new int[ROWS][COLS];
         for (int r = 0; r < ROWS; r++) {
             for (int c = 0; c < COLS; c++) {
@@ -62,6 +73,17 @@ public class JmhBenchmark {
     }
 
     @Benchmark
+    public int[][] classicArraySetLRTD(State state) {
+        int[][] d2Array = new int[ROWS][COLS];
+        for (int c = 0; c < COLS; c++) {
+            for (int r = 0; r < ROWS; r++) {
+                d2Array[r][c] = r * c;
+            }
+        }
+        return d2Array;
+    }
+
+    //@Benchmark
     public int classicArrayGetTDLR(State state) {
         int t = 0;
         for (int r = 0; r < ROWS; r++) {
@@ -73,7 +95,7 @@ public class JmhBenchmark {
         return t;
     }
 
-    @Benchmark
+    //@Benchmark
     public int classicArrayGetLRTD(State state) {
         int t = 0;
         for (int c = 0; c < COLS; c++) {
@@ -84,7 +106,7 @@ public class JmhBenchmark {
         return t;
     }
 
-    @Benchmark
+    //@Benchmark
     public int seq2DArrayGetTDLR(State state) {
         int t = 0;
         for (int r = 0; r < ROWS; r++) {
@@ -95,7 +117,7 @@ public class JmhBenchmark {
         return t;
     }
 
-    @Benchmark
+    //@Benchmark
     public int seq2DArrayGetLRTD(State state) {
         int t = 0;
         for (int c = 0; c < COLS; c++) {
@@ -106,7 +128,7 @@ public class JmhBenchmark {
         return t;
     }
 
-    @Benchmark
+    //@Benchmark
     public int seqMultArrayGetLRTD(State state) {
         int t = 0;
         for (int c = 0; c < COLS; c++) {
@@ -117,7 +139,7 @@ public class JmhBenchmark {
         return t;
     }
 
-    @Benchmark
+    //@Benchmark
     public int seqMultArrayGetTDLR(State state) {
         int t = 0;
         for (int r = 0; r < ROWS; r++) {
