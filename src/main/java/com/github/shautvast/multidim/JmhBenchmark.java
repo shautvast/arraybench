@@ -10,8 +10,8 @@ import java.util.concurrent.TimeUnit;
 @Fork(value = 1)
 public class JmhBenchmark {
 
-    private static final int ROWS = 100;
-    private static final int COLS = 100;
+    private static final int ROWS = 1000;
+    private static final int COLS = 1000;
 
 
     @org.openjdk.jmh.annotations.State(Scope.Thread)
