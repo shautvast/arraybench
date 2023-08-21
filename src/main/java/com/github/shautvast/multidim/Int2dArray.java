@@ -6,7 +6,7 @@ package com.github.shautvast.multidim;
  */
 public class Int2dArray {
     private final int[] data;
-    private int cols;
+    private final int cols;
 
     public Int2dArray(int rows, int cols) {
         data = new int[rows * cols];
@@ -14,17 +14,12 @@ public class Int2dArray {
     }
 
     public int get(int row, int col) {
-        return row * cols + col;
+        return data[row * cols + col];
     }
 
     public void set(int row, int col, int val) {
         data[row * cols + col] = val;
     }
-
-    int internalSize() {
-        return data.length;
-    }
-
 
 }
 
