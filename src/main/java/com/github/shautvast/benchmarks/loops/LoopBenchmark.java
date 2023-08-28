@@ -1,10 +1,7 @@
 package com.github.shautvast.benchmarks.loops;
 
 import org.openjdk.jmh.annotations.*;
-import org.openjdk.jmh.profile.AsyncProfiler;
-import org.openjdk.jmh.profile.LinuxPerfAsmProfiler;
-import org.openjdk.jmh.profile.Profiler;
-import org.openjdk.jmh.profile.ProfilerException;
+import org.openjdk.jmh.profile.*;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
@@ -69,7 +66,7 @@ public class LoopBenchmark {
                 .forks(1)
                 .mode(Mode.AverageTime)
                 .timeUnit(TimeUnit.NANOSECONDS)
-                .addProfiler(LinuxPerfAsmProfiler.class)
+                .addProfiler(DTraceAsmProfiler.class)
                 .build();
 
         new Runner(opt).run();
