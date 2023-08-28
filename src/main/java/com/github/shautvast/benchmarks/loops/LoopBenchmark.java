@@ -1,6 +1,14 @@
 package com.github.shautvast.benchmarks.loops;
 
 import org.openjdk.jmh.annotations.*;
+import org.openjdk.jmh.profile.AsyncProfiler;
+import org.openjdk.jmh.profile.LinuxPerfAsmProfiler;
+import org.openjdk.jmh.profile.Profiler;
+import org.openjdk.jmh.profile.ProfilerException;
+import org.openjdk.jmh.runner.Runner;
+import org.openjdk.jmh.runner.RunnerException;
+import org.openjdk.jmh.runner.options.Options;
+import org.openjdk.jmh.runner.options.OptionsBuilder;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -12,7 +20,7 @@ public class LoopBenchmark {
 
     @org.openjdk.jmh.annotations.State(Scope.Thread)
     public static class State {
-        final static int LIST_SIZE = 1000;
+        final static int LIST_SIZE = 1;
         List<String> list = new ArrayList<>(LIST_SIZE);
 
         @Setup(Level.Iteration)
@@ -53,5 +61,17 @@ public class LoopBenchmark {
     @Benchmark
     public long stream(LoopBenchmark.State state) {
         return state.list.stream().mapToLong(String::length).sum();
+    }
+
+    public static void main(String[] args) throws RunnerException {
+        Options opt = new OptionsBuilder()
+                .include(LoopBenchmark.class.getSimpleName())
+                .forks(1)
+                .mode(Mode.AverageTime)
+                .timeUnit(TimeUnit.NANOSECONDS)
+                .addProfiler(LinuxPerfAsmProfiler.class)
+                .build();
+
+        new Runner(opt).run();
     }
 }
