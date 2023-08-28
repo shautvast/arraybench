@@ -20,7 +20,7 @@ public class LoopBenchmark {
 
     @org.openjdk.jmh.annotations.State(Scope.Thread)
     public static class State {
-        final static int LIST_SIZE = 1;
+        final static int LIST_SIZE = 1000;
         List<String> list = new ArrayList<>(LIST_SIZE);
 
         @Setup(Level.Iteration)
