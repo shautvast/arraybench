@@ -1,9 +1,75 @@
-/Users/Shautvast/Library/Java/JavaVirtualMachines/openjdk-20.0.1/Contents/Home/bin/java -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=64867:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath /Users/Shautvast/dev/MultiDim/target/classes:/Users/Shautvast/.m2/repository/org/openjdk/jmh/jmh-core/1.36/jmh-core-1.36.jar:/Users/Shautvast/.m2/repository/net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4.jar:/Users/Shautvast/.m2/repository/org/apache/commons/commons-math3/3.2/commons-math3-3.2.jar org.openjdk.jmh.Main com.github.shautvast.benchmarks.loops.LoopBenchmark.*
+
+MultiDim on  main [⇡] via ☕ v20.0.1
+➜ mvn clean package
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------------< org.example:MultiDim >------------------------
+[INFO] Building MultiDim 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- clean:3.2.0:clean (default-clean) @ MultiDim ---
+[INFO] Deleting /Users/Shautvast/dev/MultiDim/target
+[INFO]
+[INFO] --- resources:3.3.0:resources (default-resources) @ MultiDim ---
+[INFO] Copying 0 resource
+[INFO]
+[INFO] --- compiler:3.8.0:compile (default-compile) @ MultiDim ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 4 source files to /Users/Shautvast/dev/MultiDim/target/classes
+[INFO]
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ MultiDim ---
+[INFO] skip non existing resourceDirectory /Users/Shautvast/dev/MultiDim/src/test/resources
+[INFO]
+[INFO] --- compiler:3.8.0:testCompile (default-testCompile) @ MultiDim ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /Users/Shautvast/dev/MultiDim/target/test-classes
+[INFO]
+[INFO] --- surefire:3.0.0-M8:test (default-test) @ MultiDim ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO]
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.github.shautvast.benchmarks.arrays.IntArrayTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in com.github.shautvast.benchmarks.arrays.IntArrayTest
+[INFO]
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO]
+[INFO] --- jar:3.3.0:jar (default-jar) @ MultiDim ---
+[INFO] Building jar: /Users/Shautvast/dev/MultiDim/target/MultiDim-1.0-SNAPSHOT.jar
+[INFO]
+[INFO] --- shade:3.2.4:shade (default) @ MultiDim ---
+[INFO] Including org.openjdk.jmh:jmh-core:jar:1.36 in the shaded jar.
+[INFO] Including net.sf.jopt-simple:jopt-simple:jar:5.0.4 in the shaded jar.
+[INFO] Including org.apache.commons:commons-math3:jar:3.2 in the shaded jar.
+[WARNING] MultiDim-1.0-SNAPSHOT.jar, commons-math3-3.2.jar, jmh-core-1.36.jar, jopt-simple-5.0.4.jar define 1 overlapping resource:
+[WARNING]   - META-INF/MANIFEST.MF
+[WARNING] maven-shade-plugin has detected that some class files are
+[WARNING] present in two or more JARs. When this happens, only one
+[WARNING] single version of the class is copied to the uber jar.
+[WARNING] Usually this is not harmful and you can skip these warnings,
+[WARNING] otherwise try to manually exclude artifacts based on
+[WARNING] mvn dependency:tree -Ddetail=true and the above output.
+[WARNING] See http://maven.apache.org/plugins/maven-shade-plugin/
+[INFO] Replacing /Users/Shautvast/dev/MultiDim/target/benchmark.jar with /Users/Shautvast/dev/MultiDim/target/MultiDim-1.0-SNAPSHOT-shaded.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.759 s
+[INFO] Finished at: 2023-08-28T20:19:01+02:00
+[INFO] ------------------------------------------------------------------------
+
+MultiDim on  main [⇡] via ☕ v20.0.1 took 2s
+➜ java -Djmh.blackhole.mode=COMPILER -jar target/benchmark.jar com.github.shautvast.benchmarks.loops.LoopBenchmark
 # JMH version: 1.36
 # VM version: JDK 20.0.1, OpenJDK 64-Bit Server VM, 20.0.1+9-29
 # VM invoker: /Users/Shautvast/Library/Java/JavaVirtualMachines/openjdk-20.0.1/Contents/Home/bin/java
-# VM options: -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=64867:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
-# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# VM options: -Djmh.blackhole.mode=COMPILER
+# Blackhole mode: compiler (forced)
 # Warmup: 5 iterations, 10 s each
 # Measurement: 5 iterations, 10 s each
 # Timeout: 10 min per iteration
@@ -13,29 +79,29 @@
 
 # Run progress: 0,00% complete, ETA 00:06:40
 # Fork: 1 of 1
-# Warmup Iteration   1: 1786,018 ns/op
-# Warmup Iteration   2: 1888,074 ns/op
-# Warmup Iteration   3: 1886,316 ns/op
-# Warmup Iteration   4: 1883,777 ns/op
-# Warmup Iteration   5: 1885,436 ns/op
-Iteration   1: 1887,511 ns/op
-Iteration   2: 1887,890 ns/op
-Iteration   3: 1881,696 ns/op
-Iteration   4: 1880,707 ns/op
-Iteration   5: 1880,880 ns/op
+# Warmup Iteration   1: 1754,846 ns/op
+# Warmup Iteration   2: 1884,679 ns/op
+# Warmup Iteration   3: 1879,891 ns/op
+# Warmup Iteration   4: 1885,271 ns/op
+# Warmup Iteration   5: 1885,652 ns/op
+Iteration   1: 1879,235 ns/op
+Iteration   2: 1881,657 ns/op
+Iteration   3: 1881,831 ns/op
+Iteration   4: 1879,397 ns/op
+Iteration   5: 1879,111 ns/op
 
 
 Result "com.github.shautvast.benchmarks.loops.LoopBenchmark.cStyle":
-  1883,737 ±(99.9%) 14,017 ns/op [Average]
-  (min, avg, max) = (1880,707, 1883,737, 1887,890), stdev = 3,640
-  CI (99.9%): [1869,720, 1897,753] (assumes normal distribution)
+  1880,246 ±(99.9%) 5,285 ns/op [Average]
+  (min, avg, max) = (1879,111, 1880,246, 1881,831), stdev = 1,372
+  CI (99.9%): [1874,961, 1885,531] (assumes normal distribution)
 
 
 # JMH version: 1.36
 # VM version: JDK 20.0.1, OpenJDK 64-Bit Server VM, 20.0.1+9-29
 # VM invoker: /Users/Shautvast/Library/Java/JavaVirtualMachines/openjdk-20.0.1/Contents/Home/bin/java
-# VM options: -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=64867:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
-# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# VM options: -Djmh.blackhole.mode=COMPILER
+# Blackhole mode: compiler (forced)
 # Warmup: 5 iterations, 10 s each
 # Measurement: 5 iterations, 10 s each
 # Timeout: 10 min per iteration
@@ -43,31 +109,31 @@ Result "com.github.shautvast.benchmarks.loops.LoopBenchmark.cStyle":
 # Benchmark mode: Average time, time/op
 # Benchmark: com.github.shautvast.benchmarks.loops.LoopBenchmark.enhancedForLoop
 
-# Run progress: 25,00% complete, ETA 00:05:01
+# Run progress: 25,00% complete, ETA 00:05:00
 # Fork: 1 of 1
-# Warmup Iteration   1: 1773,426 ns/op
-# Warmup Iteration   2: 3586,275 ns/op
-# Warmup Iteration   3: 5343,418 ns/op
-# Warmup Iteration   4: 7113,420 ns/op
-# Warmup Iteration   5: 8895,506 ns/op
-Iteration   1: 10828,846 ns/op
-Iteration   2: 12549,052 ns/op
-Iteration   3: 14358,842 ns/op
-Iteration   4: 16098,254 ns/op
-Iteration   5: 17913,231 ns/op
+# Warmup Iteration   1: 1758,171 ns/op
+# Warmup Iteration   2: 3555,794 ns/op
+# Warmup Iteration   3: 5447,708 ns/op
+# Warmup Iteration   4: 7102,611 ns/op
+# Warmup Iteration   5: 8883,170 ns/op
+Iteration   1: 10641,709 ns/op
+Iteration   2: 12409,978 ns/op
+Iteration   3: 14275,489 ns/op
+Iteration   4: 16068,675 ns/op
+Iteration   5: 19156,937 ns/op
 
 
 Result "com.github.shautvast.benchmarks.loops.LoopBenchmark.enhancedForLoop":
-  14349,645 ±(99.9%) 10787,822 ns/op [Average]
-  (min, avg, max) = (10828,846, 14349,645, 17913,231), stdev = 2801,563
-  CI (99.9%): [3561,823, 25137,467] (assumes normal distribution)
+  14510,558 ±(99.9%) 12691,399 ns/op [Average]
+  (min, avg, max) = (10641,709, 14510,558, 19156,937), stdev = 3295,916
+  CI (99.9%): [1819,158, 27201,957] (assumes normal distribution)
 
 
 # JMH version: 1.36
 # VM version: JDK 20.0.1, OpenJDK 64-Bit Server VM, 20.0.1+9-29
 # VM invoker: /Users/Shautvast/Library/Java/JavaVirtualMachines/openjdk-20.0.1/Contents/Home/bin/java
-# VM options: -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=64867:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
-# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# VM options: -Djmh.blackhole.mode=COMPILER
+# Blackhole mode: compiler (forced)
 # Warmup: 5 iterations, 10 s each
 # Measurement: 5 iterations, 10 s each
 # Timeout: 10 min per iteration
@@ -75,31 +141,31 @@ Result "com.github.shautvast.benchmarks.loops.LoopBenchmark.enhancedForLoop":
 # Benchmark mode: Average time, time/op
 # Benchmark: com.github.shautvast.benchmarks.loops.LoopBenchmark.iterator
 
-# Run progress: 50,00% complete, ETA 00:03:21
+# Run progress: 50,00% complete, ETA 00:03:20
 # Fork: 1 of 1
-# Warmup Iteration   1: 1769,666 ns/op
-# Warmup Iteration   2: 3565,897 ns/op
-# Warmup Iteration   3: 5353,325 ns/op
-# Warmup Iteration   4: 7105,560 ns/op
-# Warmup Iteration   5: 8896,662 ns/op
-Iteration   1: 10685,108 ns/op
-Iteration   2: 12501,131 ns/op
-Iteration   3: 14238,345 ns/op
-Iteration   4: 16071,297 ns/op
-Iteration   5: 17752,151 ns/op
+# Warmup Iteration   1: 1835,952 ns/op
+# Warmup Iteration   2: 3563,263 ns/op
+# Warmup Iteration   3: 5335,119 ns/op
+# Warmup Iteration   4: 7131,803 ns/op
+# Warmup Iteration   5: 8904,488 ns/op
+Iteration   1: 10828,723 ns/op
+Iteration   2: 12809,433 ns/op
+Iteration   3: 14710,805 ns/op
+Iteration   4: 16240,606 ns/op
+Iteration   5: 18024,774 ns/op
 
 
 Result "com.github.shautvast.benchmarks.loops.LoopBenchmark.iterator":
-  14249,606 ±(99.9%) 10779,967 ns/op [Average]
-  (min, avg, max) = (10685,108, 14249,606, 17752,151), stdev = 2799,523
-  CI (99.9%): [3469,640, 25029,573] (assumes normal distribution)
+  14522,868 ±(99.9%) 10862,615 ns/op [Average]
+  (min, avg, max) = (10828,723, 14522,868, 18024,774), stdev = 2820,987
+  CI (99.9%): [3660,253, 25385,483] (assumes normal distribution)
 
 
 # JMH version: 1.36
 # VM version: JDK 20.0.1, OpenJDK 64-Bit Server VM, 20.0.1+9-29
 # VM invoker: /Users/Shautvast/Library/Java/JavaVirtualMachines/openjdk-20.0.1/Contents/Home/bin/java
-# VM options: -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=64867:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
-# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# VM options: -Djmh.blackhole.mode=COMPILER
+# Blackhole mode: compiler (forced)
 # Warmup: 5 iterations, 10 s each
 # Measurement: 5 iterations, 10 s each
 # Timeout: 10 min per iteration
@@ -109,25 +175,25 @@ Result "com.github.shautvast.benchmarks.loops.LoopBenchmark.iterator":
 
 # Run progress: 75,00% complete, ETA 00:01:40
 # Fork: 1 of 1
-# Warmup Iteration   1: 693,098 ns/op
-# Warmup Iteration   2: 2506,948 ns/op
-# Warmup Iteration   3: 3707,563 ns/op
-# Warmup Iteration   4: 4929,731 ns/op
-# Warmup Iteration   5: 6242,310 ns/op
-Iteration   1: 7212,976 ns/op
-Iteration   2: 8328,529 ns/op
-Iteration   3: 9825,261 ns/op
-Iteration   4: 11371,792 ns/op
-Iteration   5: 12182,884 ns/op
+# Warmup Iteration   1: 687,521 ns/op
+# Warmup Iteration   2: 2484,195 ns/op
+# Warmup Iteration   3: 3816,503 ns/op
+# Warmup Iteration   4: 4899,563 ns/op
+# Warmup Iteration   5: 6199,629 ns/op
+Iteration   1: 7231,628 ns/op
+Iteration   2: 8320,882 ns/op
+Iteration   3: 9489,397 ns/op
+Iteration   4: 10825,228 ns/op
+Iteration   5: 12090,832 ns/op
 
 
 Result "com.github.shautvast.benchmarks.loops.LoopBenchmark.stream":
-  9784,288 ±(99.9%) 7939,705 ns/op [Average]
-  (min, avg, max) = (7212,976, 9784,288, 12182,884), stdev = 2061,916
-  CI (99.9%): [1844,584, 17723,993] (assumes normal distribution)
+  9591,593 ±(99.9%) 7447,447 ns/op [Average]
+  (min, avg, max) = (7231,628, 9591,593, 12090,832), stdev = 1934,078
+  CI (99.9%): [2144,147, 17039,040] (assumes normal distribution)
 
 
-# Run complete. Total time: 00:06:42
+# Run complete. Total time: 00:06:40
 
 REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
 why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
@@ -142,7 +208,11 @@ different JVMs are already problematic, the performance difference caused by dif
 modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
 
 Benchmark                      Mode  Cnt      Score       Error  Units
-LoopBenchmark.cStyle           avgt    5   1883,737 ±    14,017  ns/op
-LoopBenchmark.enhancedForLoop  avgt    5  14349,645 ± 10787,822  ns/op
-LoopBenchmark.iterator         avgt    5  14249,606 ± 10779,967  ns/op
-LoopBenchmark.stream           avgt    5   9784,288 ±  7939,705  ns/op
+LoopBenchmark.cStyle           avgt    5   1880,246 ±     5,285  ns/op
+LoopBenchmark.enhancedForLoop  avgt    5  14510,558 ± 12691,399  ns/op
+LoopBenchmark.iterator         avgt    5  14522,868 ± 10862,615  ns/op
+LoopBenchmark.stream           avgt    5   9591,593 ±  7447,447  ns/op
+
+MultiDim on  main [⇡] via ☕ v20.0.1 took 6m40s
+➜
+
