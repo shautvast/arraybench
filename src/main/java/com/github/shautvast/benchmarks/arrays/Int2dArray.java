@@ -1,4 +1,4 @@
-package com.github.shautvast.multidim;
+package com.github.shautvast.benchmarks.arrays;
 
 /**
  * Any dimensional int array, stored as an int[]

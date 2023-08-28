@@ -1,4 +1,4 @@
-package com.github.shautvast.multidim;
+package com.github.shautvast.benchmarks.arrays;
 
 import org.openjdk.jmh.annotations.*;
 
@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @Fork(value = 1)
-public class JmhBenchmark {
+public class ArrayBenchmark {
 
     private static final int ROWS = 1000;
     private static final int COLS = 1000;

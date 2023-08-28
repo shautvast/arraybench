@@ -1,4 +1,4 @@
-package com.github.shautvast.multidim;
+package com.github.shautvast.benchmarks.arrays;
 
 import org.junit.jupiter.api.Test;
 
