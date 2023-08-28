@@ -569,11 +569,11 @@ c2, level 4, com.github.shautvast.benchmarks.loops.jmh_generated.LoopBenchmark_e
                                 ; - com.github.shautvast.benchmarks.loops.LoopBenchmark::enhancedForLoop@38 (line 53)
                                 ; - com.github.shautvast.benchmarks.loops.jmh_generated.LoopBenchmark_enhancedForLoop_jmhTest::enhancedForLoop_avgt_jmhStub@19 (line 193)
    1,81%    0x0000000113e5a784: 210c 40b9 
-  17,19%    0x0000000113e5a788: ;*getfield coder {reexecute=0 rethrow=0 return_oop=0}
-                                ; - java.lang.String::coder@7 (line 4556)
-                                ; - java.lang.String::length@6 (line 1499)
-                                ; - com.github.shautvast.benchmarks.loops.LoopBenchmark::enhancedForLoop@38 (line 53)
-                                ; - com.github.shautvast.benchmarks.loops.jmh_generated.LoopBenchmark_enhancedForLoop_jmhTest::enhancedForLoop_avgt_jmhStub@19 (line 193)
+      17,19%    0x0000000113e5a788: ;*getfield coder {reexecute=0 rethrow=0 return_oop=0}
+                                    ; - java.lang.String::coder@7 (line 4556)
+                                    ; - java.lang.String::length@6 (line 1499)
+                                    ; - com.github.shautvast.benchmarks.loops.LoopBenchmark::enhancedForLoop@38 (line 53)
+                                    ; - com.github.shautvast.benchmarks.loops.jmh_generated.LoopBenchmark_enhancedForLoop_jmhTest::enhancedForLoop_avgt_jmhStub@19 (line 193)
   17,19%    0x0000000113e5a788: 8642 c039 | 2128 c61a 
    0,01%    0x0000000113e5a790: ;*iadd {reexecute=0 rethrow=0 return_oop=0}
                                 ; - java.util.ArrayList$Itr::next@53 (line 974)
